@@ -1,5 +1,5 @@
 class Calculator{
-    // constructor
+
     constructor(previousOperandTextElement, currentOperandTextElement){
         this.previousOperandTextElement  = previousOperandTextElement
         this.currentOperandTextElement   = currentOperandTextElement
@@ -17,7 +17,6 @@ class Calculator{
     }
 
     appendNumber(number){
-        console.log("append")
         this.currentOperand = number
     }
     chooseOperation(operation){
@@ -33,7 +32,7 @@ class Calculator{
     }
 }
 
-// gets all of our data-number attributes
+// gets all of our data attributes
 const numberButtons = document.querySelectorAll('[data-number]')
 const operationButtons = document.querySelectorAll('[data-operation]')
 const equalsButton = document.querySelector('[data-equals]')
