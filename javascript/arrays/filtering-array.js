@@ -10,5 +10,6 @@ const employees = [
 ];
 
 // The filter method does not change the initial array
+// it creates a new array with the item that match the criteria
 const developers = employees.filter(employee => employee.role === 'Developer');
 console.log(developers);
