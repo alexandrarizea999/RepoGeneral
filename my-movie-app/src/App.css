@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(to right, #5853E6, #8F53E6);
+}
+
+header {
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  background: linear-gradient(to right, #5853E6, #8F53E6);
+}
+
+header h1 {
+  color: #ffffff;
+  font-size: 4rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+main {
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.item {
+  width: 20rem;
+  text-align: left;
+  margin: 1rem;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.results .result,
+.favorites .favorite {
+  width: 20%;
+  min-width: 250px;
+  background: #e0e7ff; /* Light blue */
+  max-height: 500px;
+  margin: 20px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.results .result:hover,
+.favorites .favorite:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.results .result img,
+.favorites .favorite img {
+  width: 100%;
+  padding: 10px 2px;
+  height: 350px;
+  border-radius: 10px 10px 0 0;
+}
+
+.results .result h3,
+.favorites .favorite h3 {
+  color: #5043E6; /* Darker blue */
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem;
+  background: #B732E6; /* Purple */
+  border-radius: 0 0 10px 10px;
+}
+
+.results .result button,
+.favorites .favorite button,
+.favbtn {
+  margin: 0.5rem;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #8F53E6; /* Purple */
+  color: white; /* Ensure contrast */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.results .result button:hover,
+.favorites .favorite button:hover,
+.favbtn:hover {
+  background: #6A1BBF; /* Darker purple */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.results .result .view-details {
+  background: #B732E6; /* Purple for "View Details" */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.favorites {
+  margin-top: 3rem;
+  width: 100%;
+  text-align: center;
+}
+
+.favorites h2 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.detail {
+  margin: 3rem 5rem;
+  overflow-y: scroll;
+}
+
+.detail .content {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 25px;
+  background: #e0e7ff; /* Light blue */
+  color: #5043E6; /* Dark blue */
+  overflow-y: scroll;
+  border-radius: 10px;
+}
+
+.detail .content h2 {
+  font-size: 3rem;
+  padding: 2rem;
+  font-weight: 600;
+}
+
+.detail .content span {
+  font-size: 1.4rem;
+  margin-left: 2rem;
+  font-weight: 300;
+}
+
+.detail .content .about p {
+  font-size: 1.5rem;
+  color: #5043E6; /* Dark blue */
+}
+
+.detail .content .close {
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: 700;
+  background: #439EE6; /* Bright blue */
+  color: #ffffff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  border-radius: 5px;
+}
+
+.detail .content .close:hover {
+  background: #3175B7; /* Darker blue */
+}
+
+@media screen and (max-width: 1015px) {
+  .results,
+  .favorites {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  header h1 {
+    font-size: 2.9rem;
+  }
+
+  .results,
+  .favorites {
+    flex-direction: column;
+  }
+
+  .detail .content h2 {
+    font-size: 2.1rem;
+  }
+}
+
+.favbtn {
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.resultsearch {
+  text-align: center;
+}
+
+.favoritetext {
+  text-align: center;
+}
