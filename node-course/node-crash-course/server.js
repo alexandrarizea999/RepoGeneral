@@ -4,6 +4,8 @@ import fs from 'fs/promises'
 import url from 'url'
 import path from 'path'
 
+// TODO: vezi de ce nu merg index si about! 
+
 // Get current path
 const __filename = url.fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
