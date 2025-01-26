@@ -1,31 +1,35 @@
 import http from 'http'
 import dotenv from 'dotenv'
+import fs from 'fs/promises'
+import url from 'url'
+import path from 'path'
+
+// Get current path
+const __filename = url.fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+console.log(`filename: ${__filename}`)
+console.log(`dirname: ${__dirname}`)
 
 dotenv.config();
 const PORT = process.env.PORT
 
-const server = http.createServer((req, res) => {
-    // res.write('Hello World')
-    // res.setHeader('Content-Type', 'text/html')
-    // res.statusCode = 404
-    // res.end('<h1>Hello World</h1>')
-
-    // console.log(req.url)
-    // console.log(req.method)
-
+const server = http.createServer(async (req, res) => {
     try {
         // Check if GET request
         if(req.method === 'GET'){
+            let filePath; 
             if(req.url === '/'){
-                res.writeHead(200, { 'Content-type': 'text/html' })
-                res.end('<h1>HomePage</h1>')
+               filePath = path.join(__dirname, 'public', 'index.html');
             }else if(req.url === '/about'){
-                res.writeHead(200, { 'Content-type': 'text/html' })
-                res.end('<h1>About</h1>')
+                filePath = path.join(__dirname, 'public', 'about.html');
             }else{
-                res.writeHead(404, { 'Content-type': 'text/html' })
-                res.end('<h1>Page not found.</h1>')
+                throw new Error('Not found.')
             }
+        const data = await fs.readFile(filePath);
+        res.setHeader('Content-type', 'text/html'); 
+        res.write(data);
+        req.end();
         }else{
             throw new Error('Method now allowed.');
         }
